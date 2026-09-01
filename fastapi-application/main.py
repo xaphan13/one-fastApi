@@ -8,6 +8,7 @@ from create_fastapi import create_app
 from api import router_api
 from example_sql.router_users import r_users_sql
 from ex_order_product.router_order_one import r_order_one
+from gem_crud_best.api import router as gem_crud_router
 
 
 main_app = create_app(
@@ -24,6 +25,11 @@ main_app.include_router(
 
 main_app.include_router(
     r_order_one,
+)
+
+main_app.include_router(
+    gem_crud_router,
+    prefix="/gem",
 )
 
 
